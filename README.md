@@ -57,6 +57,8 @@ O app utiliza **MVVM**, **Repository Pattern**, **Orientação a Objetos** e **P
 - Foi optado pela utilização do Hive por ser um banco NoSQL que possui mais desempenho em casos como esse, não sendo necessário a criação de diversas tabelas e conversão de objetos em queries SQL.
 - O ícone foi gerado com inteligência artificial e os arquivos necessários para substituição no projeto foram obtidos com auxílio do appicon.co.
 - A splash screen nativa foi configurada manualmente para ter a mesma cor de fundo primária do app e utilizar o ícone, porém com fundo transparente.
+- Foram criados no arquivo theme.dart dois temas ( Light e Dark), sendo os mesmos aplicados automaticamente conforme a configuração do tema do dispositivo.
+- Foram criados alguns Widgets reaproveitáveis no diretorio widgets, facilitando a reutilização dos mesmos e reduzindo boilerplate.
   
 ## Autor
 
