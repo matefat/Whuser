@@ -1,16 +1,63 @@
-# whuser
+# Whuser
 
-Aplicativo para consulta, persistência local e demonstração de usuários consultados pela API da Random User
+**Whuser** é um aplicativo Flutter que consome a [RandomUser API](https://randomuser.me/) para exibir informações de pessoas aleatórias em tempo real, atualizando automaticamente a cada 5 segundos e persistindo o usuário.  
+O app utiliza **MVVM**, **Repository Pattern**, **Orientação a Objetos** e **Persistência Local**, permitindo consultar a lista de usuários mesmo offline.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Funcionalidades
 
-A few resources to get you started if this is your first Flutter project:
+- **Atualização automática** a cada 5 segundos (usando `Ticker`, não `Timer`)
+- **Lista de usuários** obtidos da API RandomUser
+- **Persistência local** (usuários salvos utilizando Hive)
+- **Tela de detalhes** com informações completas (agrupadas por grupos e expansíveis/retráteis utilizando ExpansionTile)
+- **Remover usuário** da persistência
+- **Interface limpa e responsiva**
+- **Arquitetura MVVM** + **Repository Strategy**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tecnologias
+
+| Biblioteca | Função |
+|-------------|--------|
+| [Dio](https://pub.dev/packages/dio) | Cliente para consulta da API |
+| [Provider](https://pub.dev/packages/provider) | Gerenciamento de estado |
+| [Ticker](https://api.flutter.dev/flutter/scheduler/Ticker-class.html) | Atualização periódica |
+| [GetX](https://pub.dev/packages/get) | Snackbars customizadas |
+| [Hive / Hive Flutter](https://pub.dev/packages/hive_flutter) | Persistência local rápida e offline (NoSQL) |
+
+---
+
+## Padrões utilizados
+
+- **MVVM (Model-View-ViewModel)**  
+  ViewModels responsáveis por intermediar a lógica e o estado.
+
+- **Repository Strategy**  
+  Os dados são abstraídos em um repositório que decide entre origem local ou remota.
+
+- **Orientação a Objetos**  
+  Modelos, repositórios e datasources são implementados como classes bem definidas, respeitando princípios de encapsulamento.
+
+---
+
+## Telas
+
+| Tela | Descrição |
+|------|------------|
+| **Home** | Lista de usuários da API, atualiza a cada 5s |
+| **Detalhes** | Exibe todas as informações agrupadas (identidade, localização, login, etc.) |
+| **Persistidos** | Lista de usuários salvos localmente, com opção de remoção |
+
+---
+
+## Observações técnicas
+
+- Foi optado pela utilização do Hive por ser um banco NoSQL que possui mais desempenho em casos como esse, não sendo necessário a criação de diversas tabelas e conversão de objetos em queries SQL.
+- O ícone foi gerado com inteligência artificial e os arquivos necessários para substituição no projeto foram obtidos com auxílio do appicon.co.
+- A splash screen nativa foi configurada manualmente para ter a mesma cor de fundo primária do app e utilizar o ícone, porém com fundo transparente.
+  
+## Autor
+
+Mateus Trierveiler
